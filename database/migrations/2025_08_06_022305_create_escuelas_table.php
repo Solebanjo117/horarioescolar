@@ -25,7 +25,6 @@ return new class extends Migration
             $table->string('codigo_postal', 10)->nullable();
             $table->string('ciudad')->nullable();
             $table->string('provincia')->nullable();
-            $table->string('pais')->nullable();
 
             $table->string('logo')->nullable();
             $table->string('website')->nullable();
