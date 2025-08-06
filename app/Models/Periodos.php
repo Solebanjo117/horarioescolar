@@ -9,4 +9,5 @@ class Periodos extends Model
 {
     /** @use HasFactory<\Database\Factories\PeriodosFactory> */
     use HasFactory;
+    protected $guarded = [];
 }

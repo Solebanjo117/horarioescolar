@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('apellidoMaterno',50)->nullable();
             $table->string('sexo',1);
             $table->string('idCarrera',15);
-            $table->foreign('idCarrera')->references('idCarrera')->on('carreras');
+            $table->foreign('idCarrera')->references('id')->on('carreras');
             $table->timestamps();
         });
     }

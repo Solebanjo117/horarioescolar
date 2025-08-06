@@ -9,4 +9,5 @@ class Reticulas extends Model
 {
     /** @use HasFactory<\Database\Factories\ReticulasFactory> */
     use HasFactory;
+    protected $guarded = [];
 }

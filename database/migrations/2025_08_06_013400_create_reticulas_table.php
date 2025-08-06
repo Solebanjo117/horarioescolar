@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('descripcion',250)->nullable();
             $table->date('fechaEnVigor')->nullable();
             $table->string('idCarrera',15);
-            $table->foreign('idCarrera')->references('idCarrera')->on('carreras');
+            $table->foreign('idCarrera')->references('id')->on('carreras');
             $table->timestamps();
         });
     }

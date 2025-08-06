@@ -9,4 +9,5 @@ class Deptos extends Model
 {
     /** @use HasFactory<\Database\Factories\DeptosFactory> */
     use HasFactory;
+    protected $guarded = [];
 }

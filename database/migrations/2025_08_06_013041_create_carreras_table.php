@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('nombreMediano',50)->nullable();
             $table->string('nombreCorto',5)->nullable();
             $table->string('idDepto',20);
-            $table->foreign('idDepto')->references('idDepto')->on('deptos');
+            $table->foreign('idDepto')->references('id')->on('deptos');
             $table->timestamps();
         });
     }

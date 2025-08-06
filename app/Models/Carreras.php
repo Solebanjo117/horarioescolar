@@ -9,4 +9,5 @@ class Carreras extends Model
 {
     /** @use HasFactory<\Database\Factories\CarrerasFactory> */
     use HasFactory;
+    protected $guarded = [];
 }

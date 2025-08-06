@@ -9,4 +9,5 @@ class Personal extends Model
 {
     /** @use HasFactory<\Database\Factories\PersonalFactory> */
     use HasFactory;
+    protected $guarded = [];
 }
