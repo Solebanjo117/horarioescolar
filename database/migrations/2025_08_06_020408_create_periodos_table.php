@@ -1,0 +1,31 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('periodos', function (Blueprint $table) {
+            $table->string('id',5)->primary();
+            $table->string('periodo',100)->nullable();
+            $table->string('descCorta',10)->nullable();
+            $table->date('fechaIni')->unique();
+            $table->date('fechaFin')->unique();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('periodos');
+    }
+};
