@@ -16,7 +16,21 @@ export interface NavItem {
     icon?: LucideIcon;
     isActive?: boolean;
 }
-
+export interface Pagination<T> {
+  data: T[];
+  links: {
+    url: string | null;
+    label: string;
+    active: boolean;
+  }[];
+  meta: {
+    current_page: number;
+    last_page: number;
+    from: number;
+    to: number;
+    total: number;
+  };
+}
 export type AppPageProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {
     name: string;
     quote: { message: string; author: string };
@@ -24,6 +38,13 @@ export type AppPageProps<T extends Record<string, unknown> = Record<string, unkn
     ziggy: Config & { location: string };
     sidebarOpen: boolean;
 };
+export interface Puesto {
+    id: number;
+    nombre: string;
+    tipo: string;
+    created_at: string;
+    updated_at: string;
+}
 
 export interface User {
     id: number;

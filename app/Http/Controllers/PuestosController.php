@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Puestos;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class PuestosController extends Controller
 {
@@ -12,7 +13,9 @@ class PuestosController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('puestos/Puestos', [
+            'puestos' => Puestos::paginate(10),
+        ]);
     }
 
     /**
@@ -20,7 +23,11 @@ class PuestosController extends Controller
      */
     public function create()
     {
-        //
+         return Inertia::render('puestos/Puestos', [
+            'puestos' => Puestos::paginate(10),
+            'puesto'=> new Puestos(),
+            'modo'=> 'create',
+        ]);
     }
 
     /**
@@ -28,7 +35,14 @@ class PuestosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'descripcion' => 'nullable|string|max:500',
+        ]);
+
+        Puestos::create($request->all());
+
+        return redirect()->route('puestos.index')->with('success', 'Puesto creado exitosamente.');
     }
 
     /**
@@ -42,17 +56,28 @@ class PuestosController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Puestos $puestos)
+    public function edit(int $id)
     {
-        //
+        return Inertia::render('puestos/Puestos', [
+            'puestos' => Puestos::paginate(10),
+            'puesto'=> Puestos::find($id),
+            'modo'=> 'edit',
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Puestos $puestos)
+    public function update(Request $request, string $puestos)
     {
-        //
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'descripcion' => 'nullable|string|max:500',
+        ]);
+        $puesto= Puestos::find($puestos);
+        $puesto->update($request->all());
+
+        return redirect()->route('puestos.index')->with('success', 'Puesto actualizado exitosamente.');
     }
 
     /**

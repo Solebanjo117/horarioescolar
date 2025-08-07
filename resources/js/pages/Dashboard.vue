@@ -2,7 +2,7 @@
 import AppLayout from '@/layouts/AppLayout.vue';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/vue3';
-import PlaceholderPattern from '../components/PlaceholderPattern.vue';
+import axios from 'axios'; //Para recuperar alumno, si no tiene alumno el user, se redi
 
 const breadcrumbs: BreadcrumbItem[] = [
     {

@@ -46,4 +46,15 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    /**
+     * Get the alumnos associated with the user.
+     */
+   public function alumno()
+{
+    return $this->hasOne(Alumnos::class);
+}
+    /**
+     * Get the role of the user.
+     */
+
 }
