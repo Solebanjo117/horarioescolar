@@ -4,7 +4,7 @@ import AppLayout from '@/layouts/AppLayout.vue';
 import { Head,router } from '@inertiajs/vue3';
 import Form from '@/pages/puestos/Form.vue';
 import Button from '@/pages/components/Button.vue';
-import { type BreadcrumbItem,type Puesto,type Pagination } from '@/types';
+import {type Puesto,type Pagination } from '@/types';
 import PaginationLinks from '../components/PaginationLinks.vue';
 import AutoTable from '@/pages/components/AutoTable.vue';
 import { defineProps,computed } from 'vue';
@@ -41,6 +41,7 @@ const columnas = [
     <div>
     <h1>Puestos</h1>
   </div>
+  <div v-if="($page.props.flash as any)?.error">Hola</div>
   <div class="flex justify-center mb-5">
     <Button class="w-50" variant="secondary"  size="lg"
      @click="router.get('/puestos/create', {}, { preserveScroll: false, preserveState: false })">Nuevo puesto</Button>
